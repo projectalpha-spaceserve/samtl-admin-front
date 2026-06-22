@@ -21,6 +21,8 @@ import {
     TableCell,
 } from "@/components/ui/table"
 
+import type { DateRange } from "react-day-picker"
+
 type Column<T> = {
     key: string
     label: string
@@ -43,8 +45,8 @@ type DataTableProps<T> = {
 
     // Date Picker
     showDatePicker?: boolean
-    dateRange?: { from?: Date; to?: Date }
-    onDateChange?: (range: { from?: Date; to?: Date }) => void
+    dateRange?: DateRange
+    onDateChange?: (range: DateRange | undefined) => void
     onClearDate?: () => void
 
 }
@@ -107,7 +109,8 @@ export function DataTable<T extends Record<string, any>>({
 
                             <Calendar
                                 mode="range"
-                                selected={dateRange as any}
+                                required={false}
+                                selected={dateRange}
                                 onSelect={onDateChange}
                                 numberOfMonths={2}
                                 autoFocus

@@ -4,6 +4,7 @@
 import React, { useState } from 'react'
 import { DataTable } from "@/components/shared/data-table";
 import { filterByDateRange } from "../../../lib/date";
+import type { DateRange } from "react-day-picker"
 
 
 function page() {
@@ -272,10 +273,7 @@ function page() {
 
     const [showActions, setShowActions] = useState(false)
 
-    const [dateRange, setDateRange] = useState<{
-        from?: Date
-        to?: Date
-    }>({})
+    const [dateRange, setDateRange] = useState<DateRange | undefined>()
 
     const customer = {
         firstname: "Alex",
@@ -425,7 +423,7 @@ function page() {
                         showDatePicker
                         dateRange={dateRange}
                         onDateChange={setDateRange}
-                        onClearDate={() => setDateRange({})}
+                        onClearDate={() => setDateRange(undefined)}
                     />
                 </div>
             </div>
