@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+      - VITE_BASE_URL=https://mis.samtlng.com/service/v1
+    command: ["serve", "-s", "dist", "-l", "3000"]
