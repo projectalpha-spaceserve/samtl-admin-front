@@ -15,7 +15,7 @@ function Login() {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (isValid) {
-            router.replace('/dashboard')
+            router.replace('/organisations')
         }
 
     }

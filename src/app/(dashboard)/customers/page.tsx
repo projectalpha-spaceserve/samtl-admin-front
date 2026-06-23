@@ -1,13 +1,29 @@
 "use client"
 
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useOrganizationStore } from '@/stores/org-store'
 import { DataTable } from "@/components/shared/data-table";
 import { filterByDateRange } from "../../../lib/date";
 import type { DateRange } from "react-day-picker"
 
 
 function page() {
+
+    const router = useRouter()
+    const organization =
+        useOrganizationStore(
+            (state) => state.organization
+        )
+
+    {/* reroute the user to the organization selection page if no organization is selected */ }
+
+    useEffect(() => {
+        if (!organization) {
+            router.push("organisations")
+        }
+    }, [organization])
 
 
     const customerActions = [
