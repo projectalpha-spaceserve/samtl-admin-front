@@ -2,6 +2,7 @@
 import React, { use } from 'react'
 import { useState } from 'react'
 import { useRouter } from "next/navigation"
+import { useToastAlert } from "@/constants/toast-provider"
 
 function Login() {
 
@@ -11,9 +12,26 @@ function Login() {
         password: ''
     })
     const isValid = formData.email && formData.password
+    const { showToast } = useToastAlert();
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        if (!isValid) {
+            showToast(
+                "error", "Invalid username or password"
+            )
+            return
+        }
+
+        showToast(
+            "success",
+            "Login successful!"
+        )
+
+        console.log(
+            "Form submitted:",
+            formData
+        )
         if (isValid) {
             router.replace('/organisations')
         }

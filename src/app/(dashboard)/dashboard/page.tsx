@@ -1,5 +1,6 @@
 "use client"
 
+import SummaryCards from "@/components/dashbord.tsx/summaryCard"
 import { useOrganizationStore } from "@/stores/org-store"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
@@ -31,6 +32,7 @@ export default function Dashboard() {
                 Current Org:
                 {organization}
             </p>
+            <SummaryCards totalTickets={10} income={1000} expenses={500} />
         </div>
     )
 

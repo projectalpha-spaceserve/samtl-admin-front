@@ -16,11 +16,11 @@ export default function DashboardLayout({
                     <div className="absolute w-[50%] h-[50%] bg-white rounded-full opacity-4"></div>
 
                     <Image
-                        src="/auth.png"
+                        src="/logo.png"
                         alt="Logo"
-                        width={100}
-                        height={200}
-                        className="relative z-10"
+                        width={300}
+                        height={500}
+                        className="relative z-10 h-auto"
                     />
                 </div>
 

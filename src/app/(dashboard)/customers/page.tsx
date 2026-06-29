@@ -334,7 +334,7 @@ function page() {
 
     return (
         <div>
-            <div className='h-16 w-full'></div>
+
             <div className='flex items-center justify-between w-full px-4 mb-7'>
                 <h1 className='text-3xl font-bold'>Customers Profile</h1>
                 <div className='relative'>
